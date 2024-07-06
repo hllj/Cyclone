@@ -1,0 +1,46 @@
+### model
+model_name_or_path: google/paligemma-3b-mix-224
+visual_inputs: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_target: all
+
+### ddp
+ddp_timeout: 180000000
+deepspeed: examples/deepspeed/ds_z3_config.json
+
+### dataset
+dataset: identity,llava_vi_train
+template: gemma
+cutoff_len: 2048
+# overwrite_cache: true
+cache_dir: /mnt/disks/dev/cache
+preprocessing_num_workers: 16
+
+### output
+output_dir: saves/paligemma-chat
+logging_steps: 10
+save_steps: 10000
+plot_loss: true
+
+### train
+per_device_train_batch_size: 6
+gradient_accumulation_steps: 1
+learning_rate: 0.000001
+num_train_epochs: 1.0
+lr_scheduler_type: cosine
+warmup_steps: 50
+bf16: true
+
+### eval
+val_size: 0.01
+per_device_eval_batch_size: 6
+eval_strategy: steps
+eval_steps: 1000
+
+### logging
+report_to: wandb
+run_name: paligemma-3b-mix-224-vi-llava

@@ -323,6 +323,36 @@
       "assistant_tag": "assistant"
     }
   },
+  "llava_vi_train": {
+    "file_name": "vi_llava_train.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "images": "images",
+      "system": "system"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant",
+      "system_tag": "system"
+    }
+  },
+  "llava_vi_validation": {
+    "file_name": "vi_llava_validation.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "messages",
+      "images": "images"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant"
+    }
+  },
   "mllm_pt_demo": {
     "hf_hub_url": "BUAADreamer/mllm_pt_demo",
     "formatting": "sharegpt",
